@@ -9,22 +9,32 @@ import SwiftUI
 
 struct ContentView: View {
     
+    let favouriteThings = Things()
+    
     var body: some View {
-        //Show a list
-        List {
-            NavigationLink("Ocean", destination: OceanView())
-            NavigationLink("Art", destination: ArtView())
-            NavigationLink("Family", destination: FamilyView())
+         
+        //Iterate over favouriteThings.list and each time it
+        //loops the next favourite thing is placed in "thing"
+        List(favouriteThings.list) { thing in
+        
+        
+            
+            NavigationLink(thing.title, destination: ThingDetailView(thingToShow: thing))
+            
             
         }
         
         //Add Title
         .navigationTitle("Favourite Things")
+            
+        }
+        
+        
         
         }
         
         
-    }
+   
 
 
 struct ContentView_Previews: PreviewProvider {

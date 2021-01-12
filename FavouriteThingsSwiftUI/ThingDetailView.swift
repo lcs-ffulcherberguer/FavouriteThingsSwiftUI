@@ -1,5 +1,5 @@
 //
-//  FamilyView.swift
+//  OceanView.swift
 //  FavouriteThingsSwiftUI
 //
 //  Created by Fulcherberguer, Fernanda on 2021-01-10.
@@ -7,7 +7,11 @@
 
 import SwiftUI
 
-struct FamilyView: View {
+struct ThingDetailView: View {
+    
+    let thingToShow: thing
+    
+    
     var body: some View {
         
         //Add the text under the picture
@@ -15,31 +19,31 @@ struct FamilyView: View {
         
         ///The highest level of the body property must have only ONE view
         ///Add imagine
-        Image("Family")
+            Image(thingToShow.imageName)
             .resizable()
             .scaledToFit()
             
-        Text("My favorite thing is to have an amazing and supportive family beside me.")
-                .foregroundColor(Color.green)
+            Text(thingToShow.description)
+            
         
-        //Moves image up, if you put on top of the code it will move image down
         Spacer()
         
-     
+        
         
         }
         
         //Add Title
-        .navigationTitle("Family")
+        .navigationTitle(thingToShow.title)
+        
         
     }
 }
 
-struct FamilyView_Previews: PreviewProvider {
+struct OceanView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
-            FamilyView()
-        }
+          OceanView()
         
-    }
+     }
+   }
 }
