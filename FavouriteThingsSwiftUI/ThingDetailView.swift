@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ThingDetailView: View {
     
-    let thingToShow: thing
+    let thingToShow: Thing
+    
     
     
     var body: some View {
@@ -42,7 +43,7 @@ struct ThingDetailView: View {
 struct OceanView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
-          OceanView()
+          
         
      }
    }
