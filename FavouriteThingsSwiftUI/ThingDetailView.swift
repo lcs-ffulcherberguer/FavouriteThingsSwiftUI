@@ -16,7 +16,7 @@ struct ThingDetailView: View {
     var body: some View {
         
         //Add the text under the picture
-        VStack{
+        ScrollView {
         
         ///The highest level of the body property must have only ONE view
         ///Add imagine
@@ -27,7 +27,20 @@ struct ThingDetailView: View {
             Text(thingToShow.description)
             
         
-        Spacer()
+       //If there are any related things, show them
+            if thingToShow.relatedThings.count > 0 {
+                
+                List(thingToShow.relatedThings) { thing in
+                
+               NavigationLink(thing.title, destination: ThingDetailView(thingToShow: thing))
+                    
+                    
+                }
+                
+                
+                
+                
+            }
         
         
         
@@ -38,6 +51,7 @@ struct ThingDetailView: View {
         
         
     }
+    
 }
 
 struct OceanView_Previews: PreviewProvider {
